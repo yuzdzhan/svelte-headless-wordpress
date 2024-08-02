@@ -7,7 +7,7 @@
 </script>
 
 {#if pagesCount > 1}
-  <nav aria-label="Pagination">
+  <nav class="nav" aria-label="Pagination">
     {#if currentPage === 1}
       <span aria-label="Предишна страница" aria-disabled="true">
         <svg xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@
   </nav>
 
   <style>
-    nav {
+    .nav {
       margin-bottom: 2rem;
       margin-top: 2rem;
       display: flex;

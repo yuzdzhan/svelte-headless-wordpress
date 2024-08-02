@@ -1,6 +1,9 @@
 <script>
   import PostList from "./PostList.svelte";
 
+  /**
+   * @type {import('$lib/wordpressTypes').WPPost[]} 
+   */
   export let posts;
 </script>
 

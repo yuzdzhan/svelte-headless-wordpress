@@ -4,7 +4,7 @@
  */
 export async function load({ fetch }) {
     try {
-      const response = await fetch("/api/posts?page=1&perPage=5");
+      const response = await fetch("/api/posts?page=1&perPage=2");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

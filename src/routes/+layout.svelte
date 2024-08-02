@@ -18,12 +18,12 @@
 
 <div class="container">
   <Header />
-<hr />
-<main>
+  <hr />
+  <main>
     <slot />
   </main>
-<hr />
-<Footer />
+  <hr />
+  <Footer />
 </div>
 
 <style>

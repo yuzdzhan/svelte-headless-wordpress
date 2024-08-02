@@ -10,7 +10,15 @@ import { writable } from "svelte/store";
 const defaultTheme = 'light';
 
 /** @type {Theme} */
-const initialTheme = browser ? /** @type {Theme} */ (localStorage.getItem('theme')) || defaultTheme : defaultTheme;
+let initialTheme = defaultTheme;
+
+if(browser) {
+    initialTheme = /** @type {Theme} */  (localStorage.getItem('theme'));
+}
+
+if(!initialTheme){
+    initialTheme = defaultTheme;
+}
 
 /** @type {import('svelte/store').Writable<Theme>} */
 export const theme = writable(initialTheme);
@@ -19,9 +27,14 @@ export const theme = writable(initialTheme);
  * Toggle current theme
  */
 export function toggleTheme() {
-    theme.update(/** @param {Theme} currentTheme @returns {Theme} */ (currentTheme) => {
 
-        
+    /**
+     * 
+     * @param {Theme} currentTheme
+     * @returns {Theme} 
+     */
+    function updateTheme(currentTheme) {
+
         /** @type {Theme} */
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
@@ -31,5 +44,7 @@ export function toggleTheme() {
         }
 
         return newTheme;
-    })
+    }
+
+    theme.update(updateTheme)
 }

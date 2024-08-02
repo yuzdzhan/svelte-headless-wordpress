@@ -1,10 +1,12 @@
 <script>
   import { formatDate } from "../../utils/dateUtils";
 
-  /** @type {Post} */
+  /**
+   * @type {import('$lib/wordpressTypes').WPPost} 
+   */
   export let post;
 
-  const date = new Date(post.date);
+  $: date = new Date(post.date);
 </script>
 
 <li>

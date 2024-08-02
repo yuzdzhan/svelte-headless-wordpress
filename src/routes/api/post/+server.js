@@ -5,17 +5,10 @@ import { API_URL } from '$env/static/private';
 const wp = new WordPressAPI(API_URL);
 
 export async function GET({ url }) {
-  const page = Number(url.searchParams.get('page')) || 1;
-  const perPage = Number(url.searchParams.get('perPage')) || 10;
-  const searchTerm = url.searchParams.get('search');
+  const slug = url.searchParams.get('slug') || '';
   
   try {
-    let result;
-    if (searchTerm) {
-      result = await wp.searchPosts({ searchTerm, page, perPage });
-    } else {
-      result = await wp.getPosts({ page, perPage });
-    }
+    let result = await wp.getPostBySlug(slug);
     
     return json(result);
   } catch (error) {

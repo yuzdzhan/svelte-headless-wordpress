@@ -2,12 +2,12 @@
   import Paging from "$lib/components/Paging.svelte";
   import PostList from "$lib/components/PostList.svelte";
 
-  /** @type {{posts: import('$lib/wordpressTypes').PaginatedResponsePosts, currentPage: number}} */
+  /** @type {{posts: import('$lib/wordpressTypes').PaginatedResponsePostsWithCategory, currentPage: number}} */
   export let data;
 </script>
 
-<h1>Всички статии</h1>
-<p>Всички статии които съм публикувал</p>
+<h1>{data.posts.category.name}</h1>
+<p>Всички статии които съм публикувал по темата</p>
 
 {#if data.posts.items.length === 0}
   <p>No posts found.</p>

@@ -2,21 +2,21 @@
 /**
  * @type {import('./$types').PageLoad}
  */
-export async function load({fetch, params}) {
+export async function load({ fetch, params }) {
     try {
-        const response = await fetch(`/api/posts?limit=5&page=${params.slug}&_fields=id,title,excerpt,date,slug`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        /** @type {WPPostsResponse} */
-        const data = await response.json();
-
-        return {posts:data.posts, paging: data.paging, currentPage: params.slug};
-    }catch (error) {
-        console.error('Error loading posts:', error);
-        return { 
-            posts: [],
-            error: 'Failed to load posts'
-        };
+      const response = await fetch(`/api/posts?page=${params.slug}&perPage=5`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      /** @type {import('$lib/wordpressTypes').PaginatedResponsePosts} */
+      const posts = await response.json();
+      return {posts, currentPage: parseInt(params.slug)};
+    } catch (error) {
+      console.error("Error loading posts:", error);
+      return {
+        posts: [],
+        error: "Failed to load posts",
+      };
     }
-}
+  }
+  
