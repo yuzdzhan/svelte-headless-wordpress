@@ -12,7 +12,7 @@
 <nav>
   <ul>
     {#each navItems as item}
-      <li class:active={$page.url.pathname === item.href}>
+      <li class={$page.url.pathname === item.href ? 'active mob-no' : 'mob-no' }>
         <a href={item.href}>{item.label}</a>
       </li>
     {/each}
@@ -64,5 +64,11 @@
 
   .search:hover {
     fill: rgba(var(--color-accent));
+  }
+
+  @media only screen and (max-width: 768px) {
+    .mob-no{
+      display: none;
+    }
   }
 </style>
