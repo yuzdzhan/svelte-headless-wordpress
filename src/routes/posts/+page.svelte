@@ -2,20 +2,29 @@
   import Paging from "$lib/components/Paging.svelte";
   import PostList from "$lib/components/PostList.svelte";
 
-  /** @type {import('$lib/wordpressTypes').PaginatedResponsePosts} */
+  /** @type {{
+   * posts: import('$lib/wordpressTypes').PaginatedResponsePosts,
+   * frontPageData: import('$lib/wordpressTypes').WPPage,
+   * tableOfContents: []
+   * }} */
   export let data;
 </script>
+
+<svelte:head>
+  {@html data.frontPageData.yoast_head}
+</svelte:head>
+
 
 <h1>Всички статии</h1>
 <p>Всички статии които съм публикувал</p>
 
-{#if data.items.length === 0}
+{#if data.posts.items.length === 0}
   <p>No posts found.</p>
 {:else}
-  <PostList posts={data.items} />
+  <PostList posts={data.posts.items} />
 
-  {#if data.pagination && data.pagination.totalPages > 0}
-    <Paging pagesCount={data.pagination.totalPages} currentPage={1} />
+  {#if data.posts.pagination && data.posts.pagination.totalPages > 0}
+    <Paging pagesCount={data.posts.pagination.totalPages} currentPage={1} />
   {/if}
 {/if}
 

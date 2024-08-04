@@ -1,5 +1,6 @@
 /**
  * @typedef {import('./wordpressTypes').WPPost} WPPost
+ * @typedef {import('./wordpressTypes').WPPage} WPPage
  * @typedef {import('./wordpressTypes').WPCategory} WPCategory
  * @typedef {import('./wordpressTypes').WPTag} WPTag
  * @typedef {import('./wordpressTypes').WPUser} WPUser
@@ -47,6 +48,36 @@ class WordPressAPI {
         totalPages: Number(response.headers.get("X-WP-TotalPages")),
       },
     };
+  }
+
+  /**
+   * Get a single page by ID
+   * @param {number} id - Page ID
+   * @returns {Promise<WPPage>}
+   */
+  async getPage(id) {
+    const response = await fetch(`${this.baseUrl}/pages/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  }
+
+  /**
+   * Get a single page by Slug
+   * @param {string} slug - Page Slug
+   * @returns {Promise<WPPage>}
+   */
+  async getPageBySlug(slug) {
+    const response = await fetch(`${this.baseUrl}/pages?slug=${slug}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const pages = await response.json();
+    if (pages.length === 0) {
+      throw new Error(`No page found with slug: ${slug}`);
+    }
+    return pages[0];
   }
 
   /**

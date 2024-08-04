@@ -2,11 +2,17 @@
     import PostDate from '$lib/components/PostDate.svelte';
     import TableOfContents from '$lib/components/TableOfContents.svelte';
 
-    /** @type {{post: import('$lib/wordpressTypes').WPPost, tableOfContents: []}} */
+    /** @type {{
+     * post: import('$lib/wordpressTypes').WPPost,
+     * tableOfContents: []
+     * }} */
     export let data;
-
     const date = new Date(data.post.date);
 </script>
+
+<svelte:head>
+    {@html data.post.yoast_head}
+</svelte:head>
 
 <h1>{data.post.title.rendered}</h1>
 

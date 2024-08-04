@@ -6,8 +6,13 @@
   export let data;
 </script>
 
+<svelte:head>
+  {@html data.posts.category.yoast_head}
+</svelte:head>
+
+
 <h1>{data.posts.category.name}</h1>
-<p>Всички статии които съм публикувал по темата</p>
+<p>{data.posts.category.description}</p>
 
 {#if data.posts.items.length === 0}
   <p>No posts found.</p>
@@ -31,6 +36,5 @@
   p {
     margin-bottom: 1.5rem;
     margin-top: 0.5rem;
-    font-style: italic;
   }
 </style>

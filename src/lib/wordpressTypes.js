@@ -29,7 +29,44 @@
  * @property {Object} meta - The post meta
  * @property {number[]} categories - Array of category IDs
  * @property {number[]} tags - Array of tag IDs
+ * @property {string} yoast_head
+ * @property {object} yoast_json
  */
+
+
+/**
+ * @typedef {Object} WPPage
+ * @property {number} id - The page ID
+ * @property {string} date - The page creation date
+ * @property {string} date_gmt - The page creation date in GMT
+ * @property {Object} guid - The globally unique identifier for the page
+ * @property {string} guid.rendered - The rendered GUID
+ * @property {string} modified - The page modification date
+ * @property {string} modified_gmt - The page modification date in GMT
+ * @property {string} slug - The page slug
+ * @property {string} status - The page status
+ * @property {string} type - The page type (should be 'page')
+ * @property {string} link - The page URL
+ * @property {Object} title - The page title
+ * @property {string} title.rendered - The rendered page title
+ * @property {Object} content - The page content
+ * @property {string} content.rendered - The rendered page content
+ * @property {string} content.protected - Whether the content is protected
+ * @property {Object} excerpt - The page excerpt
+ * @property {string} excerpt.rendered - The rendered page excerpt
+ * @property {string} excerpt.protected - Whether the excerpt is protected
+ * @property {number} author - The page author ID
+ * @property {number} featured_media - The featured image ID
+ * @property {number} parent - The parent page ID
+ * @property {number} menu_order - The page order
+ * @property {string} comment_status - Whether comments are allowed
+ * @property {string} ping_status - Whether pings are allowed
+ * @property {string} template - The page template
+ * @property {Object} meta - The page meta
+ * @property {string} yoast_head
+ * @property {object} yoast_json
+ */
+
 
 /**
  * @typedef {Object} WPCategory
@@ -41,6 +78,8 @@
  * @property {string} slug - The category slug
  * @property {string} taxonomy - The taxonomy slug
  * @property {number} parent - The parent category ID
+ * @property {string} yoast_head
+ * @property {object} yoast_json
  */
 
 /**
@@ -52,6 +91,8 @@
  * @property {string} name - The tag name
  * @property {string} slug - The tag slug
  * @property {string} taxonomy - The taxonomy slug
+ * @property {string} yoast_head
+ * @property {object} yoast_json
  */
 
 /**
@@ -63,6 +104,8 @@
  * @property {string} link - URL to the user's page on the site
  * @property {string} slug - The user's slug
  * @property {Object} avatar_urls - URLs to the user's avatar image
+ * @property {string} yoast_head
+ * @property {object} yoast_json
  */
 
 /**
