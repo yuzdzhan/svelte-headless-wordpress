@@ -26,7 +26,7 @@ export function processContent(content) {
         const id = heading.textContent.replaceAll(' ', '_');
 
         // Create a hidden anchor tag
-        const anchorTag = parse(`<a id="${id}" href="#${id}" class="anchor-link" aria-hidden="true">#</a>`);
+        const anchorTag = parse(`<a id="${id}" href="#${id}" class="anchor-link" aria-hidden="true" tabindex="-1">#</a>`);
         heading.appendChild(anchorTag);
 
         toc.push({level, text, id});
