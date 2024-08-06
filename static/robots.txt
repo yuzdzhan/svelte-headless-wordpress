@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/themes/
+Disallow: /wp-json/
+Disallow: /search/
+Disallow: /*?s=*
+Disallow: /*?p=*
+Disallow: /xmlrpc.php
+Disallow: /cgi-bin/
+
+Sitemap: https://ozzydev.eu/sitemap.xml
