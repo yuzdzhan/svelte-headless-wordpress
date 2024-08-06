@@ -1,6 +1,22 @@
 <script>
     import PostDate from '$lib/components/PostDate.svelte';
     import TableOfContents from '$lib/components/TableOfContents.svelte';
+    import {onMount} from 'svelte';
+    import {browser} from '$app/environment';
+
+    onMount(() => {
+        if (browser) {
+            const script = document.createElement('script');
+            script.src = '/js/enlighter/enlighterjs.min.js';
+            script.onload = () => {
+                // Initialize Enlighter.js
+                window.EnlighterJS.init('pre', 'code', {
+                    indent: 2
+                });
+            };
+            document.body.appendChild(script);
+        }
+    });
 
     /** @type {{
      * post: import('$lib/wordpressTypes').WPPost,
