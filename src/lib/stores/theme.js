@@ -1,5 +1,5 @@
-import { browser } from "$app/environment";
-import { writable } from "svelte/store";
+import {browser} from "$app/environment";
+import {writable} from "svelte/store";
 
 /**
  * Represents the theme options for the application.
@@ -12,11 +12,11 @@ const defaultTheme = 'light';
 /** @type {Theme} */
 let initialTheme = defaultTheme;
 
-if(browser) {
-    initialTheme = /** @type {Theme} */  (localStorage.getItem('theme'));
+if (browser) {
+    initialTheme = /** @type {Theme} */  (localStorage.getItem('theme')) || defaultTheme;
 }
 
-if(!initialTheme){
+if (!initialTheme) {
     initialTheme = defaultTheme;
 }
 
@@ -27,18 +27,17 @@ export const theme = writable(initialTheme);
  * Toggle current theme
  */
 export function toggleTheme(e) {
-e.preventDefault();
+    e.preventDefault();
+
     /**
-     * 
+     *
      * @param {Theme} currentTheme
-     * @returns {Theme} 
+     * @returns {Theme}
      */
     function updateTheme(currentTheme) {
-
         /** @type {Theme} */
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-        if(browser) {
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        if (browser) {
             localStorage.setItem('theme', newTheme);
             document.documentElement.setAttribute('data-theme', newTheme);
         }
