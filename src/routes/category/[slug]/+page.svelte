@@ -36,5 +36,6 @@
   p {
     margin-bottom: 1.5rem;
     margin-top: 0.5rem;
+    font-style: italic;
   }
 </style>

@@ -60,7 +60,7 @@
       gap: 1.4rem;
     }
 
-    svg {
+    .nav svg {
       display: inline-block;
       height: 1.5rem;
       width: 1.5rem;

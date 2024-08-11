@@ -48,7 +48,7 @@
     text-decoration: none;
   }
 
-  svg {
+  .all-posts svg {
     display: inline-block;
     height: 1.5rem;
     width: 1.5rem;

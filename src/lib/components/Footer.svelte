@@ -21,6 +21,7 @@
     gap: 20px;
     align-items: flex-start;
     justify-content: space-between;
+    margin-top: auto;
   }
   span {
     white-space: nowrap;

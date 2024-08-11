@@ -2,7 +2,7 @@
   import { theme, toggleTheme } from "$lib/stores/theme";
 </script>
 
-<button on:click={toggleTheme} class="icon-link" aria-label="Toggle Theme">
+<a href="/#" on:click={toggleTheme} class="icon-link" aria-label="Toggle Theme">
   {#if $theme === "light"}
     <svg class="darkToggle" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -16,13 +16,14 @@
       ></path>
     </svg>
   {/if}
-</button>
+</a>
 
 <style>
   .darkToggle,
   .lightToggle {
     width: 22px;
     height: 22px;
+    text-decoration: none;
   }
   .lightToggle {
     fill: rgb(var(--color-text-base));

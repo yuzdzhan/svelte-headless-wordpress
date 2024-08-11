@@ -26,8 +26,8 @@ export const theme = writable(initialTheme);
 /**
  * Toggle current theme
  */
-export function toggleTheme() {
-
+export function toggleTheme(e) {
+e.preventDefault();
     /**
      * 
      * @param {Theme} currentTheme
