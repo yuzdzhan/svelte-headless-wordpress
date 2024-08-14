@@ -32,6 +32,7 @@ class WordPressAPI {
    */
   async #getPaginated(endpoint, params = {}) {
     const url = new URL(`${this.baseUrl}/${endpoint}`);
+    console.log(url)
     Object.entries(params).forEach(([key, value]) =>
       url.searchParams.append(key, value.toString())
     );
