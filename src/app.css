@@ -449,16 +449,24 @@ a:not(.icon-link) {
     padding-inline-start: 1.625em;
 }
 
+.post ol > li,
 .post ul > li {
     padding-inline-start: .375em;
     margin-top: .5em;
     margin-bottom: .5em;
 }
 
+.post ol > li::marker,
 .post ul > li::marker {
     color: rgb(var(--color-accent));
 }
 
+.post ol {
+    list-style: auto;
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    padding-inline-start: 1.625em;
+}
 /* Syntax highlight start */
 .enlighter-code {
     border-radius: 5px;

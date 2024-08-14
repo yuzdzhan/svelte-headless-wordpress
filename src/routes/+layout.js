@@ -7,7 +7,7 @@ let initialTheme = 'light';
 if(browser) {
     initialTheme =  /** @type {import('$lib/stores/theme').Theme} */ (
         localStorage.getItem("theme")
-    );
+    ) || initialTheme;
     document.documentElement.setAttribute("data-theme", initialTheme);
 }
 
