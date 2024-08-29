@@ -467,6 +467,10 @@ a:not(.icon-link) {
     margin-bottom: 1.25em;
     padding-inline-start: 1.625em;
 }
+.aligncenter {
+    display: flex;
+    justify-content: center;
+}
 /* Syntax highlight start */
 .enlighter-code {
     border-radius: 5px;
