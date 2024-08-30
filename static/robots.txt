@@ -11,4 +11,7 @@ Disallow: /*?p=*
 Disallow: /xmlrpc.php
 Disallow: /cgi-bin/
 
-Sitemap: https://ozzydev.eu/sitemap.xml
+User-agent: facebookexternalhit
+Allow: /
+
+Sitemap: https://admin.ozzydev.eu/sitemap.xml
